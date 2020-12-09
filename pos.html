@@ -7,6 +7,48 @@
     <link rel="stylesheet" href="pos.css">
 </head>
 <body>
+
+    <section class="checkout">
+        <h2>Checkout</h2>
+        <div class="tabs">
+            <div role="tablist" aria-label="choose cash or card to pay"> 
+                <button role="tab" aria-selected="true" aria-controls="cash-tab" id="cash">Cash</button>
+                <button role="tab" aria-selected="false" aria-controls="card-tab" id="card">Card</button>
+            </div> 
+
+            <div tabindex="0"
+                 role="tabpanel"
+                 id="cash-tab"
+                 aria-labelledby="cash"
+                 
+                 >
+                 <ul>
+                     <li>Items:</li>
+                     <li>Subtotal:</li>
+                     <li>Taxes:</li>
+                     <li>Total Due:</li>
+                 </ul>
+                 <label> Please enter cash paid
+                     <input type="text" name="" id="">
+                 </label>
+                 <ul>
+                     <li>Cash Paid:</li>
+                     <li>Change Due:</li>
+                 </ul>
+            </div>
+            <div tabindex="0"
+                 role="tabpanel"
+                 id="card-tab"
+                 aria-labelledby="card"
+                 hidden=>
+                 
+            </div>
+        </div>
+        
+
+        
+        
+    </section>
     
     <script src="pos.js" async defer></script>
 </body>
