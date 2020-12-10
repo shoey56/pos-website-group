@@ -2,3 +2,46 @@ form{
     display: block;
     max-width: 375px;
 }
+
+body{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+label{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%;
+}
+
+select, input{
+    width: 100%;
+    margin-left: 5px;;
+    /* background-color: tan; */
+}
+
+#ageBackground{
+    background-color: purple;
+    position: fixed;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+}
+
+#ageForm{
+    background-color: tan;
+    margin: 25% 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#nameSubmit{
+    width: 35%;
+    margin: 10px auto;
+}
+
+.hidden{
+    display: none;
+}
