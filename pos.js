@@ -63,6 +63,7 @@ function changeTabs(e) {
     .querySelector(`#${target.getAttribute("aria-controls")}`)
     .removeAttribute("hidden");
 }
+
 //Set year min and max for age validation
 document.getElementById("year").max = new Date().getFullYear();
 document.getElementById("year").min = new Date().getFullYear() - 100;
