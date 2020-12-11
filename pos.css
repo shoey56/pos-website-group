@@ -1,10 +1,15 @@
+form{
+    display: block;
+    max-width: 375px;
+}
+
 *{
 margin: 0;
 padding: 0;
 list-style: none;
 text-decoration: none;
 }
-/* 
+
 header{
     width: 100%;
     height: 35px;
@@ -66,7 +71,7 @@ label{
 select, input{
     width: 100%;
     margin-left: 5px;;
-    /* background-color: tan; */
+    /* background-color: tan;*/
 }
 
 #ageBackground{
@@ -92,20 +97,14 @@ select, input{
 
 .hidden{
     display: none;
-} */
-/* Receipts */
-receipt{
-    width: 360px;
-    height: 720px;
-    background-color:purple;
-    border-radius: 30px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    margin-top: -360px;
-    margin-left: -180px;
-    padding: 20px;
+} 
 
+/* Receipts */
+.receipt{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    
 }
 /* receipt heading// */
 .name{
@@ -118,42 +117,21 @@ receipt{
 
 /* // Item Info // */
 .item{
-font-size:13px;
+
 color: gray;
 padding-left: 10px;
 letter-spacing: .7px;
 }
 
-// Total Price //
-.totalprice p {
-    padding-left: 10px;
-}
-.totalprice .sub,
-.totalprice .tax {
-    font-size: 13px;
-    color: #aaa;
+#item-desc{
+
+    margin: 10px;
 
 }
-.totalprice span {
-    float: right;
-    margin-right: 17px;
-}
 
-.totalprice .tot {
-    color: gray;
-    font-size: 15px;
-}
-
-
-// Footer //
-footer{
-
-    font-size: 10px;
-    padding: 11px
-    text-align: center;
-    margin-top: 135px;
-    color: gray;
+#wine-club{
     position: absolute; 
     bottom: 0;
-    
+
+}
 
