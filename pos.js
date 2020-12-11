@@ -26,7 +26,13 @@ window.addEventListener("load", (event) => {
     }
   }
 
-  const checkoutButton = document.getElementById("checkout-pay");
+  
+  
+
+
+});
+
+const checkoutButton = document.getElementById("checkout-pay");
 checkoutButton.addEventListener("click", function (event) {
   const checkout = document.querySelector(".checkout");
   checkout.classList.toggle("hidden");
@@ -67,7 +73,6 @@ checkoutButton.addEventListener("click", function (event) {
     }
   });
 });
-
 function changeTabs(e) {
   const target = e.target;
   const parent = target.parentNode;
@@ -91,5 +96,3 @@ function changeTabs(e) {
     .querySelector(`#${target.getAttribute("aria-controls")}`)
     .removeAttribute("hidden");
 }
-
-});
