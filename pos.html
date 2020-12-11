@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+    
     <header>
 
         <div class="header_logo_container"></div>
@@ -19,6 +21,7 @@
         <nav>
             <ul class="navigation">
                 <li><a>Cart</a></li>
+                <li><a href="#" id="checkout-pay">Checkout</a></li>
             </ul>
         </nav>
         <!-- // Receipt// -->
@@ -40,7 +43,62 @@
         </div>
         <!-- //End of receipt// -->
     </header>
+    <section class="checkout hidden">
+        <h2>Checkout</h2>
+        <div class="tabs">
+            <div role="tablist" aria-label="choose cash or card to pay"> 
+                <button role="tab" aria-selected="true" aria-controls="cash-tab" id="cash">Cash</button>
+                <button role="tab" aria-selected="false" aria-controls="card-tab" id="card">Card</button>
+            </div> 
 
+            <div tabindex="0"
+                 role="tabpanel"
+                 id="cash-tab"
+                 aria-labelledby="cash"
+                 >
+                 <ul>
+                     <li>Items:</li>
+                     <li>Subtotal:</li>
+                     <li>Taxes:</li>
+                     <li>Total Due:</li>
+                 </ul>
+                 <label> Please enter cash paid
+                     <input type="text" name="" id="">
+                 </label>
+                 <ul>
+                     <li>Cash Paid:</li>
+                     <li>Change Due:</li>
+                 </ul>
+            </div>
+            <div tabindex="0"
+                 role="tabpanel"
+                 id="card-tab"
+                 aria-labelledby="card"
+                 hidden>
+                 <form>
+                     <label for=""> Name on Card:
+                         <input type="text">
+                     </label>
+                     <label for=""> Card Number:
+                         <input type="text">
+                     </label>
+                     <label for=""> Expiration:
+                        <input type="text">
+                    </label>
+                    <label for=""> CVV:
+                        <input type="text">
+                    </label>
+                    <label for=""> Zip Code:
+                        <input type="text">
+                    </label>
+                 </form>
+            </div>
+        </div>
+        
+
+        
+        
+    </section>
 
     <footer>
         <div class="footer_logo_container"></div>
@@ -48,74 +106,75 @@
 
     </footer>
 
-    <script src="pos.js"></script>
+        
     <div id="ageBackground">
-        <form id=ageForm>
-            <p id="verifyAgeSection">Please verify your age:</p>
-            <label>
-                Month:
-                <select id="month" name="month" required>
-                    <option disabled selected value> -- Select Month -- </option>
-                    <option value=0>01 January</option>
-                    <option value=1>02 February</option>
-                    <option value=2>03 March</option>
-                    <option value=3>04 April</option>
-                    <option value=4>05 May</option>
-                    <option value=5>06 June</option>
-                    <option value=6>07 July</option>
-                    <option value=7>08 August</option>
-                    <option value=8>09 September</option>
-                    <option value=9>10 October</option>
-                    <option value=10>11 November</option>
-                    <option value=11>12 December</option>
-                </select>
-            </label>
-            <label>
-                Day:
-                <select id="day" name="day" required>
-                    <option disabled selected value> -- Select Day -- </option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                    <option value=11>11</option>
-                    <option value=12>12</option>
-                    <option value=13>13</option>
-                    <option value=14>14</option>
-                    <option value=15>15</option>
-                    <option value=16>16</option>
-                    <option value=17>17</option>
-                    <option value=18>18</option>
-                    <option value=19>19</option>
-                    <option value=20>20</option>
-                    <option value=21>21</option>
-                    <option value=22>22</option>
-                    <option value=23>23</option>
-                    <option value=24>24</option>
-                    <option value=25>25</option>
-                    <option value=26>26</option>
-                    <option value=27>27</option>
-                    <option value=28>28</option>
-                    <option value=29>29</option>
-                    <option value=30>30</option>
-                    <option value=31>31</option>
-                </select>
-            </label>
-            <label>
-                Year:
-                <input type="number" id="year" placeholder="Enter Year (YYYY)" required>
-            </label>
-            <button type="submit" id="nameSubmit">Enter</button>
-        </form>
-    </div>
 
-    <script src="pos.js" async defer></script>
+    <form id=ageForm>
+        <p id="verifyAgeSection">Please verify your age:</p>
+        <label>
+            Month: 
+            <select id="month" name="month" required>
+                <option disabled selected value> -- Select Month -- </option>
+                <option value=0>01 January</option>
+                <option value=1>02 February</option>
+                <option value=2>03 March</option>
+                <option value=3>04 April</option>
+                <option value=4>05 May</option>
+                <option value=5>06 June</option>
+                <option value=6>07 July</option>
+                <option value=7>08 August</option>
+                <option value=8>09 September</option>
+                <option value=9>10 October</option>
+                <option value=10>11 November</option>
+                <option value=11>12 December</option>
+            </select>
+        </label>
+        <label>
+            Day: 
+            <select id="day" name="day" required>
+                <option disabled selected value> -- Select Day -- </option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+                <option value=16>16</option>
+                <option value=17>17</option>
+                <option value=18>18</option>
+                <option value=19>19</option>
+                <option value=20>20</option>
+                <option value=21>21</option>
+                <option value=22>22</option>
+                <option value=23>23</option>
+                <option value=24>24</option>
+                <option value=25>25</option>
+                <option value=26>26</option>
+                <option value=27>27</option>
+                <option value=28>28</option>
+                <option value=29>29</option>
+                <option value=30>30</option>
+                <option value=31>31</option>
+            </select>
+        </label>
+        <label>
+            Year: 
+            <input type="number" id="year" placeholder="Enter Year (YYYY)" required>
+        </label>
+        <button type="submit" id="nameSubmit">Enter</button>
+    </form>
+    </div>
+    
+    <script src="pos.js"></script>
 </body>
 
 </html>
