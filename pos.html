@@ -20,14 +20,35 @@
 
         <nav>
             <ul class="navigation">
-                <li><a>Cart</a></li>
-                <li><a href="#" id="checkout-pay">Checkout</a></li>
+                <li><a href = "#" id="open-cart">Cart</a></li>
+                <!-- <li><a href="#" id="checkout-pay">Checkout</a></li> -->
             </ul>
         </nav>
 
     </header>
 
     <main>
+        <!-- Cart -->
+        <section class="cartPage hidden">
+            <h2>My Cart</h2>
+            <div id="noItemsMessage">There are currently no items in your cart</div>
+            <table id="itemsInCart">
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </table>
+            <ul>
+                <li class="subtotal">Subtotal:</li>
+                <li class="tax">Taxes:</li>
+                <li class="total">Total:</li>
+            </ul>
+            <button href="#" type="submit" id="checkout-pay">Checkout</button>
+        </section>
+        <!-- End of Cart -->
+        <!-- Choose Payment -->
         <section class="checkout hidden">
             <h2>Checkout</h2>
             <div class="tabs">
@@ -42,9 +63,9 @@
                      >
                      <ul>
                          <li>Items:</li>
-                         <li>Subtotal:</li>
-                         <li>Taxes:</li>
-                         <li>Total Due:</li>
+                         <li class="subtotal">Subtotal:</li>
+                         <li class="tax">Taxes:</li>
+                         <li class="total">Total Due:</li>
                      </ul>
                      <label> Please enter cash paid
                          <input type="text" name="" id="">
@@ -82,6 +103,7 @@
             
             
         </section>
+        <!-- End of Choose Payment -->
         <!-- // Receipt// -->
         <div class="receipt">
             <h2 class="name">THANK YOU</h2>
@@ -91,9 +113,9 @@
 
                 <ul class="totalprice">
 
-                    <li class="sub"> Subtotal: <span>12.00</span></li>
-                    <li class="tax"> Tax: <span> .72</span></li>
-                    <li class="total"> Total: <span> 12.72</span></li>
+                    <li class="subtotal"> Subtotal:</li>
+                    <li class="tax"> Tax:</li>
+                    <li class="total"> Total:</li>
                 </ul>
                 
 

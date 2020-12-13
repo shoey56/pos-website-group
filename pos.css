@@ -135,3 +135,23 @@ letter-spacing: .7px;
 
 }
 
+/* Cart Page section */
+.cartPage{
+    text-align: center;
+    padding: 25px;
+}
+
+#itemsInCart {
+    margin-top: 15px;;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    width: 100%;  
+  }
+
+  .cartPicture{
+      width: 75px;
+      height: 75px;
+  }
+
+

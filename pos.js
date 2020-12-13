@@ -1,4 +1,3 @@
-
 window.addEventListener("load", (event) => {
   //Set year min and max for age validation
   document.getElementById("year").max = new Date().getFullYear();
@@ -25,17 +24,14 @@ window.addEventListener("load", (event) => {
       alert("You must be 21 to access this site");
     }
   }
-
-  
-  
-
-
 });
 
 const checkoutButton = document.getElementById("checkout-pay");
 checkoutButton.addEventListener("click", function (event) {
   const checkout = document.querySelector(".checkout");
   checkout.classList.toggle("hidden");
+  const cartPage = document.querySelector(".cartPage");
+  cartPage.classList.toggle("hidden");
 
   const tabs = document.querySelectorAll('[role="tab"]');
   const tabList = document.querySelector('[role="tablist"]');
@@ -95,4 +91,112 @@ function changeTabs(e) {
   grandparent.parentNode
     .querySelector(`#${target.getAttribute("aria-controls")}`)
     .removeAttribute("hidden");
+}
+
+// Add to Cart
+let cart = [
+  {
+    name: "Blair's Baco Noir",
+    category: "medium-dry red",
+    price: 11.99,
+    src: "/grand-circus/projects/memory-game/eighthDay.png",
+    qty: 2,
+    cart: false,
+  },
+  {
+    name: "Tiia's",
+    category: "medium-dry red",
+    price: 11.99,
+    src: "/grand-circus/projects/memory-game/eighthDay.png",
+    qty: 1,
+    cart: false,
+  },
+
+  {
+    name: "BJ's",
+    category: "medium-dry red",
+    price: 11.99,
+    src: "/grand-circus/projects/memory-game/eighthDay.png",
+    qty: 3,
+    cart: false,
+  },
+];
+document.getElementById("open-cart").addEventListener("click", loadCartPage);
+
+function loadCartPage() {
+  const cartPage = document.querySelector(".cartPage");
+  cartPage.classList.toggle("hidden");
+  let cartTable = document.getElementById("itemsInCart");
+  if (cart.length < 1) {
+    cartTable.classList.add("hidden");
+  } else {
+    document.getElementById("noItemsMessage").classList.add("hidden");
+    cart.forEach(addItemToTable);
+    calculateTotal();
+  }
+
+  function addItemToTable(item) {
+    if (!item.cart) {
+      let newRow = cartTable.insertRow(-1);
+      let newItem = newRow.insertCell(0);
+      let newQty = newRow.insertCell(1);
+      let newPrice = newRow.insertCell(2);
+      let remove = newRow.insertCell(3);
+      let image = document.createElement("img");
+      image.classList.add("cartPicture");
+      image.src = item.src;
+      newItem.appendChild(image);
+      let name = document.createElement("div");
+      name.innerText = item.name;
+      newItem.appendChild(name);
+      let qty = document.createElement("div");
+      qty.innerText = item.qty;
+      newQty.appendChild(qty);
+      let price = document.createElement("div");
+      price.innerText = item.price;
+      newPrice.appendChild(price);
+      let removeFromCart = document.createElement("button");
+      removeFromCart.innerText = "remove";
+      removeFromCart.onclick = removeItem;
+      remove.appendChild(removeFromCart);
+      item.cart = true;
+    }
+  }
+
+  function removeItem(event) {
+    event.preventDefault();
+    event.path[2].remove();
+    calculateTotal();
+  }
+}
+
+// Calculate total
+let subTotal = 0;
+let tax = 0;
+let total = 0;
+
+function calculateTotal() {
+  subTotal = 0;
+  tax = 0;
+  total = 0;
+  let cartTable = document.getElementById("itemsInCart");
+  let rows = cartTable.querySelectorAll("tr");
+  for (r = 1; r < rows.length; r++) {
+    let rowData = rows[r].querySelectorAll("td");
+    rQty = rowData[1].innerText;
+    rPrice = rowData[2].innerText;
+    subTotal = subTotal + rQty * rPrice;
+  }
+
+  tax = subTotal * 0.06;
+  total = subTotal + tax;
+  for (let elem of document.querySelectorAll(".subtotal")){
+    elem.innerHTML = `Subtotal: $${subTotal.toFixed(2)}`;
+  }
+  for (let elem of document.querySelectorAll(".tax")){
+    elem.innerHTML = `Tax: $${tax.toFixed(2)}`;
+  }
+  for (let elem of document.querySelectorAll(".total")){
+    elem.innerHTML = `Total: $${total.toFixed(2)}`;
+  }
 }
