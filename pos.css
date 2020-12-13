@@ -43,7 +43,6 @@ padding: 0px 20px;
 footer{
     width: 100vw;
     display: block;
-    padding: 20px 20;
     box-sizing: border-box;
     background-color: black;
     position: absolute; 
@@ -70,24 +69,28 @@ label{
 
 select, input{
     width: 100%;
-    margin-left: 5px;;
+    margin-left: 5px;
     /* background-color: tan;*/
 }
 
 #ageBackground{
     background-color: purple;
-    position: fixed;
     text-align: center;
-    height: 100vh;
-    width: 100vw;
     z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
 }
 
 #ageForm{
     background-color: tan;
-    margin: 25% 5%;
+    margin: 10em auto;
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 
 #nameSubmit{
@@ -101,9 +104,8 @@ select, input{
 
 /* Receipts */
 .receipt{
-    width: 100%;
-    height: 100px;
-    padding: 10px;
+    width: 80%;
+    height: 200px;
     
 }
 /* receipt heading// */
@@ -129,11 +131,11 @@ letter-spacing: .7px;
 
 }
 
-#wine-club{
+/* #wine-club{
     position: absolute; 
     bottom: 0;
 
-}
+} */
 
 /* Cart Page section */
 .cartPage{
@@ -147,6 +149,7 @@ letter-spacing: .7px;
     margin-right: auto;
     table-layout: fixed;
     width: 100%;  
+    max-width: 600px;
   }
 
   .cartPicture{

@@ -3,7 +3,7 @@ const wines = [
         name: "Blair's Baco Noir",
         category: "medium-dry red",
         price: "11.99",
-        src: "/grand-circus/projects/memory-game/eighthDay.png",
+        src: "blankWineBottle.png",
     },
 
     {
