@@ -185,15 +185,18 @@
                          <li>Items:</li>
                          <li class="subtotal">Subtotal:</li>
                          <li class="tax">Taxes:</li>
-                         <li class="total">Total Due:</li>
+                         <li class="total" id="total-due">Total Due:</li>
                      </ul>
                      <label> Please enter cash paid
-                         <input type="text" name="" id="">
+                         <input type="number" name="" id="get-cash-paid">
                      </label>
+                     <button type="submit" id="cash-calculate">Calculate Change</button>
                      <ul>
-                         <li>Cash Paid:</li>
-                         <li>Change Due:</li>
+                         <li id="cash-paid">Cash Paid:</li>
+                         <li id="change-due">Change Due:</li>
                      </ul>
+                     
+                     <button type="submit" id="view-receipt">View Receipt</button>
                 </div>
                 <div tabindex="0"
                      role="tabpanel"
