@@ -215,7 +215,12 @@ document.getElementById("cash-calculate").addEventListener("click", function(eve
   document.getElementById('change-due').append(cashChange.toFixed(2));
 });
 
-
+document.getElementById('view-receipt').addEventListener('click', function(e){
+  const viewReciept = document.querySelector(".receipt");
+    viewReciept.classList.toggle("hidden");
+    const checkout = document.querySelector(".checkout");
+  checkout.classList.toggle("hidden");
+})
 
 
 //verify CC number
