@@ -37,7 +37,7 @@ padding: 5px 10px;
 .navigation a{
 height: 100%;
 padding: 0px 20px;
-
+color: inherit;
 }
 
 footer{
@@ -96,9 +96,6 @@ select, input{
   margin: 10px auto;
 }
 
-.hidden {
-  display: none;
-}
 
 /* The Modal (background) */
 .modal {
@@ -140,7 +137,7 @@ select, input{
 
 
 
-.row1 {
+/* .row1 {
     display: flex;
     flex-direction: column;
     float: left;
@@ -153,6 +150,12 @@ select, input{
   float: right;
   width: 50%;
  
+} */
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /* Receipts */
@@ -222,7 +225,7 @@ img {
   border-radius: 4px;
   padding: 5px;
   width: 100px;
-  height: 70px;
+  height: 100px;
 }
 img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
@@ -231,3 +234,7 @@ img:hover {
 .image-details {
   list-style-type: none;
 }
+
+.hidden {
+    display: none;
+  }

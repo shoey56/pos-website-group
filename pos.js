@@ -125,6 +125,9 @@ document.getElementById("open-cart").addEventListener("click", loadCartPage);
 
 function loadCartPage() {
   const cartPage = document.querySelector(".cartPage");
+  // document.getElementById("main").style.display = "none";
+  const hideMenu = document.querySelector(".main");
+  hideMenu.classList.toggle("hidden");
   cartPage.classList.toggle("hidden");
   let cartTable = document.getElementById("itemsInCart");
   if (cart.length < 1) {
@@ -241,29 +244,92 @@ function isCCValid(number) {
 }
 
 
-let modal = document.getElementById("myModal");
+// let modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-let btn = document.getElementById("myBtn");
+// // Get the button that opens the modal
+// let btn = document.getElementById("myBtn");
 
 
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+// // Get the <span> element that closes the modal
+// let span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+// // When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
+// Add wine to wine menu
+let wineList = document.getElementById("main");
+for (let index = 0; index < wines.length; index++){
+  const element = wines[index];
+  const wineInfo = document.createElement("div");
+  wineInfo.classList.add("wine-info");
+  wineInfo.setAttribute("id", "wine-" + (index+1));
+
+  //Get image
+  const wineImage = document.createElement("img");
+  wineImage.setAttribute("src", element.src);
+  wineImage.classList.add("wine-image");
+  wineInfo.append(wineImage);
+
+  //Get name
+  const wineName = document.createElement("h3");
+  wineName.innerText = element.name;
+  wineName.classList.add("wine-name");
+  wineInfo.append(wineName);
+
+  //Get category
+  const wineCat = document.createElement("p");
+  wineCat.innerText = "Category: " + element.category;
+  wineCat.classList.add("wine-category");
+  wineInfo.append(wineCat);
+
+  //Get Price
+  const winePrice = document.createElement("p");
+  winePrice.innerText = "Price: $" + element.price;
+  winePrice.classList.add("wine-price");
+  wineInfo.append(winePrice);
+
+  //Add to cart Button
+  const addToCart = document.createElement("button");
+  addToCart.innerText = "Add To Cart";
+  addToCart.addEventListener("click", function () {
+    let selectedWine = wines[index]
+    console.log(selectedWine);
+    for (wine of cart){
+      if (selectedWine.name === wine.name){
+        wine.qty += 1;
+        return;
+      }
+    }
+    selectedWine.qty = 1;
+    cart.push(selectedWine);
+    console.log(cart)
+  });
+
+  wineInfo.append(addToCart);
+
+
+
+
+
+
+
+
+
+
+  wineList.append(wineInfo);
+
 }
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
