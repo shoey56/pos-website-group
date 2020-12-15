@@ -1,57 +1,76 @@
 const wines = [
     {
         name: "Blair's Baco Noir",
-        category: "medium-dry red",
-        price: "11.99",
+        category: "burgundy-red",
+        price: 39.99,
         src: "blankWineBottle.png",
+        cart: false,
     },
 
     {
-        name: "Tiia's",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Tiia's Terret Noir",
+        category: "blonde-sweet",
+        price: 29.99,
+        src: "blankWineBottle.png",
+        cart: false,
     },
 
     {
-        name: "BJ's",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "BJ's Bordeaux Blanc",
+        category: "dry-white",
+        price: 100.00,
+        src: "blankWineBottle.png",
+        cart: false,
     },
 
     {
         name: "Carol's Coastal Chablis",
         category: "medium-dry white",
-        price: "11.99"
+        price: 19.99,
+        src: "blankWineBottle.png",
+        cart: false,
     },
     {
-        name: "",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Joe Shmoe Sharaz",
+        category: "hard-dry red",
+        price: 75.00,
+        src: "blankWineBottle.png",
+        cart: false,
     },
     {
-        name: "",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Ian's Ice Wine",
+        category: "sweet-white",
+        price: 50.00,
+        src: "blankWineBottle.png",
+        cart: false,
     },
     {
-        name: "",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Shannon's Sonoma",
+        category: "dry-red",
+        price: 74.99,
+        src: "blankWineBottle.png",
+        cart: false,
     },
     {
-        name: "",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Rose's Rhine Riesling",
+        category: "medium-dry white",
+        price: 29.99,
+        src: "blankWineBottle.png",
+        cart: false,
     },
     {
-        name: "",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Cherina Chianti",
+        category: "tart-dry red",
+        price: 39.99,
+        src: "blankWineBottle.png",
+        cart: false,
     },
     {
-        name: "",
-        category: "medium-dry red",
-        price: "11.99"
+        name: "Grand Chirpus Chateau",
+        category: "spicy-hot red",
+        price: 99.99,
+        src: "blankWineBottle.png",
+        cart: false,
     }
 
 ]
