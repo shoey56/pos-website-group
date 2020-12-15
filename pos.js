@@ -202,6 +202,22 @@ function calculateTotal() {
   }
 }
 
+//calculate change
+document.getElementById("cash-calculate").addEventListener("click", function(event){ 
+  
+  let cashChange= document.getElementById("get-cash-paid").value;
+  cashChange=parseFloat(cashChange);
+  console.log(`cash change is: ${cashChange}`);
+   cashChange= cashChange- total;
+   console.log(`change due is: ${cashChange}`);
+ 
+  document.getElementById('cash-paid').append(total.toFixed(2));
+  document.getElementById('change-due').append(cashChange.toFixed(2));
+});
+
+
+
+
 //verify CC number
 document.getElementById("checkout-submit").addEventListener("click", validateCC);
 
