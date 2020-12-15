@@ -94,48 +94,29 @@ function changeTabs(e) {
 }
 
 // Add to Cart
-let cart = [
-  {
-    name: "Blair's Baco Noir",
-    category: "medium-dry red",
-    price: 11.99,
-    src: "blankWineBottle.png",
-    qty: 2,
-    cart: false,
-  },
-  {
-    name: "Tiia's",
-    category: "medium-dry red",
-    price: 11.99,
-    src: "blankWineBottle.png",
-    qty: 1,
-    cart: false,
-  },
+let cart = [];
 
-  {
-    name: "BJ's",
-    category: "medium-dry red",
-    price: 11.99,
-    src: "blankWineBottle.png",
-    qty: 3,
-    cart: false,
-  },
-];
 document.getElementById("open-cart").addEventListener("click", loadCartPage);
 
 function loadCartPage() {
   const cartPage = document.querySelector(".cartPage");
-  // document.getElementById("main").style.display = "none";
+  const menuMessage = document.querySelector(".wine-intro");
   const hideMenu = document.querySelector(".main");
+  menuMessage.classList.toggle("hidden")
   hideMenu.classList.toggle("hidden");
   cartPage.classList.toggle("hidden");
   let cartTable = document.getElementById("itemsInCart");
+  let receiptTable = document.getElementById("itemsInReceipt");
   if (cart.length < 1) {
-    cartTable.classList.add("hidden");
+    alert("There are currently no items in your cart")
+    menuMessage.classList.toggle("hidden")
+    hideMenu.classList.toggle("hidden");
+    cartPage.classList.toggle("hidden");
   } else {
-    document.getElementById("noItemsMessage").classList.add("hidden");
     cart.forEach(addItemToTable);
+    cart.forEach(addItemToReceipt);
     calculateTotal();
+    document.getElementById("open-cart").removeEventListener("click", loadCartPage);
   }  
 
 
@@ -169,9 +150,34 @@ function loadCartPage() {
 
   function removeItem(event) {
     event.preventDefault();
+    console.log(event);
+    let removeQty = event.path[2].children[1].innerText;
+    console.log(removeQty)
     event.path[2].remove();
     calculateTotal();
+    let cart = document.getElementById("open-cart"); 
+    let currentCart = cart.innerText;
+    let ccartArray = currentCart.split(" ");
+    let newQty = ccartArray[2] - removeQty;
+    ccartArray[2] = newQty;
+    let newCart = ccartArray.join(" ");
+    cart.innerText = newCart;
   }
+
+  function addItemToReceipt(item) {
+    if (!item.cart) {
+      let newRow = receiptTable.insertRow(-1);
+      let newItem = newRow.insertCell(0);
+      let newQty = newRow.insertCell(1);
+      let name = document.createElement("div");
+      name.innerText = item.name;
+      newItem.appendChild(name);
+      let qty = document.createElement("div");
+      qty.innerText = item.qty;
+      newQty.appendChild(qty);
+    }
+  }
+
 }
 
 // Calculate total
@@ -324,33 +330,30 @@ for (let index = 0; index < wines.length; index++){
   wineInfo.append(winePrice);
 
   //Add to cart Button
+  const itemsInCart = document.getElementById("open-cart");
   const addToCart = document.createElement("button");
   addToCart.innerText = "Add To Cart";
+  addToCart.classList.add("add-to-cart");
   addToCart.addEventListener("click", function () {
     let selectedWine = wines[index]
     console.log(selectedWine);
+    let wineCount = 0;
     for (wine of cart){
+      wineCount += wine.qty;
       if (selectedWine.name === wine.name){
         wine.qty += 1;
+        itemsInCart.innerHTML = "Cart ( " + (wineCount + 1) + " )";
         return;
       }
     }
     selectedWine.qty = 1;
     cart.push(selectedWine);
-    console.log(cart)
+    itemsInCart.innerHTML = "Cart ( " + (wineCount + 1)+ " )";
   });
-
   wineInfo.append(addToCart);
-
-
-
-
-
-
-
-
-
-
   wineList.append(wineInfo);
 
+
 }
+
+

@@ -12,11 +12,7 @@
 <body>
 
     <header>
-
-        <div class="header_logo_container"></div>
         <h1>GRAND CHIRPUS WINES</h1>
-
-
         <nav>
             <ul class="navigation">
                 <li><a href = "#" id="open-cart">Cart</a></li>
@@ -47,103 +43,11 @@
         </div>
       
       </div> -->
-    
+      <div class="wine-intro">
+        <h2>Wine Menu</h2>
+        <p> Please see our selection of Michigan based wines, with prices and flavors to meet everyone's needs.</p>
+    </div>
         <section id="main" class=" main">
-    
-        <!-- <div class="row1"> -->
-            <!-- <div class="left-column">
-              <img src="images/redwine9.jpeg" alt="alternate-text">
-              <ul class = "image-details">
-                <li>Name:</li>
-                <li>Category:</li>
-                <li>Price:</li>
-                <li><button>Checkout</button></li>
-            </ul>
-            </div>
-            <div class="left-column">
-              <img src="images/redwine6.jpeg" alt="alternate-text">
-              <ul class = "image-details">
-                <li>Name:</li>
-                <li>Category:</li>
-                <li>Price:</li>
-                <li><button>Checkout</button></li>
-            </ul>
-            </div>
-            <div class="left-column">
-              <img src="images/redwine3.jpeg" alt="alternate-text">
-              <ul class = "image-details">
-                <li>Name:</li>
-                <li>Category:</li>
-                <li>Price:</li>
-                <li><button>Checkout</button></li>
-            </ul>
-            </div>
-            <div class="left-column">
-                <img src="images/redwine7.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div>
-              <div class="left-column">
-                <img src="images/redwine5.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div>
-         </div> -->
-        <!-- <div class="row2"> -->
-            <!-- <div class="right-column">
-                <img src="images/whitewine1.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div>
-              <div class="right-column">
-                <img src="images/whitewine2.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div>
-              <div class="right-column">
-                <img src="images/whitewine3.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div>
-              <div class="right-column">
-                <img src="images/whitewine4.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div>
-              <div class="right-column">
-                <img src="images/whitewine5.jpeg" alt="alternate-text">
-                <ul class = "image-details">
-                  <li>Name:</li>
-                  <li>Category:</li>
-                  <li>Price:</li>
-                  <li><button>Checkout</button></li>
-              </ul>
-              </div> -->
-        <!-- </div> -->
 
         </section>
         
@@ -151,7 +55,6 @@
         <!-- Cart -->
         <section class="cartPage hidden">
             <h2>My Cart</h2>
-            <div id="noItemsMessage">There are currently no items in your cart</div>
             <table id="itemsInCart">
                 <tr>
                     <th>Item</th>
@@ -160,7 +63,7 @@
                     <th></th>
                 </tr>
             </table>
-            <ul>
+            <ul class="cartPricing">
                 <li class="subtotal">Subtotal:</li>
                 <li class="tax">Taxes:</li>
                 <li class="total">Total:</li>
@@ -229,11 +132,16 @@
         </section>
         <!-- End of Choose Payment -->
         <!-- // Receipt// -->
-        <div class="receipt hidden">
+        <section class="receipt hidden">
             <h2 class="name">THANK YOU</h2>
 
             <div class="item">
-                <div id="item-desc">Item Description: <span>Pinot Noir</span></div>
+                <table id="itemsInReceipt">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                    </tr>
+                </table>
 
                 <ul class="totalprice">
 
@@ -246,7 +154,7 @@
             </div>
 
             <div id="wine-club">Chirpus Wine Club Coming in 2021!</div>
-        </div>
+        </section>
         <!-- //End of receipt// -->
         <div id="ageBackground">
             <form id=ageForm>
