@@ -95,6 +95,10 @@ function changeTabs(e) {
 
 // Add to Cart
 let cart = [];
+// Calculate total
+let subTotal = 0;
+let tax = 0;
+let total = 0;
 
 document.getElementById("open-cart").addEventListener("click", loadCartPage);
 
@@ -113,14 +117,17 @@ function loadCartPage() {
     hideMenu.classList.toggle("hidden");
     cartPage.classList.toggle("hidden");
   } else {
-    cart.forEach(addItemToTable);
-    cart.forEach(addItemToReceipt);
+    // cart.for(addItemToTable);
+    for (let i = 0; i<cart.length; i++){
+      addItemToTable(cart[i], i);
+    }
+    // cart.forEach(addItemToReceipt);
     calculateTotal();
     document.getElementById("open-cart").removeEventListener("click", loadCartPage);
   }  
 
 
-  function addItemToTable(item) {
+  function addItemToTable(item, index) {
     if (!item.cart) {
       let newRow = cartTable.insertRow(-1);
       let newItem = newRow.insertCell(0);
@@ -142,30 +149,33 @@ function loadCartPage() {
       newPrice.appendChild(price);
       let removeFromCart = document.createElement("button");
       removeFromCart.innerText = "remove";
-      removeFromCart.onclick = removeItem;
+      removeFromCart.onclick = removeItem.bind(this, index);
       remove.appendChild(removeFromCart);
       item.cart = true;
     }
   }
 
-  function removeItem(event) {
+  function removeItem(index, event) {
     event.preventDefault();
     console.log(event);
     let removeQty = event.path[2].children[1].innerText;
     console.log(removeQty)
     event.path[2].remove();
+    cart.splice(index, 1);
     calculateTotal();
-    let cart = document.getElementById("open-cart"); 
-    let currentCart = cart.innerText;
+    let c = document.getElementById("open-cart"); 
+    let currentCart = c.innerText;
     let ccartArray = currentCart.split(" ");
     let newQty = ccartArray[2] - removeQty;
     ccartArray[2] = newQty;
     let newCart = ccartArray.join(" ");
-    cart.innerText = newCart;
+    c.innerText = newCart;
+
   }
 
   function addItemToReceipt(item) {
-    if (!item.cart) {
+    if (item.cart) {
+      console.log(item);
       let newRow = receiptTable.insertRow(-1);
       let newItem = newRow.insertCell(0);
       let newQty = newRow.insertCell(1);
@@ -178,36 +188,37 @@ function loadCartPage() {
     }
   }
 
-}
-
-// Calculate total
-let subTotal = 0;
-let tax = 0;
-let total = 0;
-
-function calculateTotal() {
-  subTotal = 0;
-  tax = 0;
-  total = 0;
-  let cartTable = document.getElementById("itemsInCart");
-  let rows = cartTable.querySelectorAll("tr");
-  for (r = 1; r < rows.length; r++) {
-    let rowData = rows[r].querySelectorAll("td");
-    rQty = rowData[1].innerText;
-    rPrice = rowData[2].innerText;
-    subTotal = subTotal + rQty * rPrice;
-  }
-
-  tax = subTotal * 0.06;
-  total = subTotal + tax;
-  for (let elem of document.querySelectorAll(".subtotal")){
-    elem.innerHTML = `Subtotal: $${subTotal.toFixed(2)}`;
-  }
-  for (let elem of document.querySelectorAll(".tax")){
-    elem.innerHTML = `Tax: $${tax.toFixed(2)}`;
-  }
-  for (let elem of document.querySelectorAll(".total")){
-    elem.innerHTML = `Total: $${total.toFixed(2)}`;
+  function calculateTotal() {
+    subTotal = 0;
+    tax = 0;
+    total = 0;
+    // let receiptTable = document.getElementById("itemsInReceipt");
+    let cartTable = document.getElementById("itemsInCart");
+    let rows = cartTable.querySelectorAll("tr");
+    for (r = 1; r < rows.length; r++) {
+      let rowData = rows[r].querySelectorAll("td");
+      rQty = rowData[1].innerText;
+      rPrice = rowData[2].innerText;
+      subTotal = subTotal + rQty * rPrice;
+    }
+    // console.log(receiptTable.rows[1]);
+    // for (let i=1; i<receiptTable.rows.length; i++){
+    //   console.log(receiptTable.rows[i]);
+    //   receiptTable.deleteRow(i);
+    // }
+    console.log(receiptTable.rows[2]);
+    cart.forEach(addItemToReceipt);
+    tax = subTotal * 0.06;
+    total = subTotal + tax;
+    for (let elem of document.querySelectorAll(".subtotal")){
+      elem.innerHTML = `Subtotal: $${subTotal.toFixed(2)}`;
+    }
+    for (let elem of document.querySelectorAll(".tax")){
+      elem.innerHTML = `Tax: $${tax.toFixed(2)}`;
+    }
+    for (let elem of document.querySelectorAll(".total")){
+      elem.innerHTML = `Total: $${total.toFixed(2)}`;
+    }
   }
 }
 
@@ -304,6 +315,7 @@ for (let index = 0; index < wines.length; index++){
   const wineInfo = document.createElement("div");
   wineInfo.classList.add("wine-info");
   wineInfo.setAttribute("id", "wine-" + (index+1));
+  console.log(wines[index]);
 
   //Get image
   const wineImage = document.createElement("img");
@@ -322,6 +334,12 @@ for (let index = 0; index < wines.length; index++){
   wineCat.innerText = "Category: " + element.category;
   wineCat.classList.add("wine-category");
   wineInfo.append(wineCat);
+
+  //Get description
+  const wineDesc = document.createElement("p");
+  wineDesc.innerText = "Description: " + element.desc;
+  wineDesc.classList.add("wine-description");
+  wineInfo.append(wineDesc);
 
   //Get Price
   const winePrice = document.createElement("p");

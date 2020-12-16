@@ -135,7 +135,7 @@ input {
   margin: 15px 3px;
   padding: 5px;
   width: 150px;
-  height: 240px;
+  height: 375px;
   position: relative;
   background-color: #e8d8c3;
 }
@@ -150,8 +150,9 @@ input {
   text-align: center;
 }
 
-.wine-category,
+.wine-category, .wine-description,
 .wine-price {
+  border-top: solid 1px gray;
   padding: 3px;
 }
 
