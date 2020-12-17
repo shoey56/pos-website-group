@@ -60,6 +60,12 @@ footer {
   color: white;
   font-size: 11px;
 }
+main {
+font-family: mostra-nuova, sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
 
 body {
   margin: 0;
@@ -135,7 +141,7 @@ input {
   margin: 15px 3px;
   padding: 5px;
   width: 150px;
-  height: 240px;
+  height: 375px;
   position: relative;
   background-color: #e8d8c3;
 }
@@ -150,9 +156,9 @@ input {
   text-align: center;
 }
 
-.wine-category,
-.wine-price,{
-  padding: 3px;
+.wine-category, .wine-description,
+.wine-price {
+  border-top: solid padding 3px;
 }
 
 .add-to-cart {
