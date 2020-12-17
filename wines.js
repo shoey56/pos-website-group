@@ -4,7 +4,7 @@ const wines = [
         category: "strawberry-red",
         desc:"A fresh and fruity grape wine with a burst of freshness from the addition of strawberry juice",
         price: 49.99,
-        src: "blankWineBottle.png",
+        src: "./images/redwine4.jpeg",
         cart: false,
     },
 
