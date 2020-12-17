@@ -16,7 +16,7 @@ window.addEventListener("load", (event) => {
     ) {
       document.getElementById("ageBackground").style.display = "none";
     } else if (
-      selectedMonth < currentMonth ||
+      (selectedMonth < currentMonth &&  document.getElementById("year").value < document.getElementById("year").max - 21)||
       (selectedMonth == currentMonth && selectedDay <= currentDate)
     ) {
       document.getElementById("ageBackground").style.display = "none";
