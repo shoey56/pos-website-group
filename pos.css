@@ -158,7 +158,8 @@ input {
 
 .wine-category, .wine-description,
 .wine-price {
-  border-top: solid padding 3px;
+  border-top: solid 1px gray;
+  padding: 3px;
 }
 
 .add-to-cart {
